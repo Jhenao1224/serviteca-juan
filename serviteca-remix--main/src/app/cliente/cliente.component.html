@@ -1,0 +1,32 @@
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1>Crear Cliente</h1>
+    <div class="bg-body-tertiary p-3 rounded">
+        <form class="row" #f="ngForm" (ngSubmit)="f.form.valid && guardarCliente()">
+            <label for="exampleInputPassword1" class="form-label">Cedula</label>
+            <input class="form-control"
+                type="number" name="cedula" id="cedula" placeholder="cedula"
+                [(ngModel)]="cedula" required
+            /><br>
+
+            <label for="exampleInputPassword1" class="form-label">Nombres</label>
+            <input class="form-control"
+                type="string" name="nombres" id="nombres" placeholder="Nombres"
+                [(ngModel)]="nombres" required
+            /><br>
+
+            <label for="exampleInputPassword1" class="form-label">Apellidos</label>
+            <input class="form-control"
+                type="string" name="apellidos" id="apellidos" placeholder="Apellidos"
+                [(ngModel)]="apellidos" required
+            />
+
+            <label for="exampleInputPassword1" class="form-label">Fecha de Nacimiento</label>
+            <input class="form-control"
+                type="date" name="fechaNacimiento" id="fechaNacimiento" placeholder="fechaNacimiento"
+                [(ngModel)]="fechaNacimiento" required
+            />       
+            <button class="btn btn-outline-secondary" type="submit" style="cursor: pointer" onclick="guardarCliente()">Crear cliente</button>
+        </form>
+    </div>
+</div>
+<router-outlet></router-outlet>

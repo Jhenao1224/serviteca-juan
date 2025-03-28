@@ -1,0 +1,57 @@
+
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+  <h1 class="display-4 fw-normal">Crear Orden</h1>
+  <!--p class="fs-5 text-body-secondary">Selecciona el cliente a quien se va a realizar la orden.</p>
+  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="cliente">
+    <option value="{{clienteItem.cedula}}" *ngFor="let clienteItem of clientes; let indice = index">{{ clienteItem.cedula }}</option>
+  </select-->
+
+  <p class="fs-5 text-body-secondary">Selecciona el vehiculo al que se va a realizar los servicios.</p>
+  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="vehiculo">
+    <option value="{{ vehiculoItem.placa }} - {{ vehiculoItem.tipo }}" *ngFor="let vehiculoItem of vehiculos; let indice = index">{{ vehiculoItem.placa }} - {{ vehiculoItem.tipo }}</option>
+  </select>
+
+  <p class="fs-5 text-body-secondary">Selecciona los servicios que deseas incluir en la orden.</p>
+  <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    <div class="col" *ngFor="let servicioItem of servicios; let indice = index">
+      <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="card-header py-3">
+          <h4 class="my-0 fw-normal">{{ servicioItem.nombre }}</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"><small class="text-body-secondary fw-light">$ </small>{{ servicioItem.precio }}</h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Tarda {{ servicioItem.tiempo }} horas</li>
+            <li>Realizado por: {{ servicioItem.operario }}</li>
+          </ul>
+          <button type="button" class="w-100 btn btn-lg btn-outline-secondary" (click)="agregarServicio(servicioItem)">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="display-6 text-center mb-4">Orden</h2>
+  <div class="table-responsive">
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th style="width: 34%;">Servicio</th>
+          <th style="width: 22%;">Precio</th>
+          <th style="width: 22%;">Tiempo</th>
+          <th style="width: 22%;">Enterprise</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let servicio of ordenTemporal; let indice = index">
+          <th style="width: 34%;">{{ servicio.nombre }}</th>
+          <td>{{ servicio.precio }}</td>
+          <td>{{ servicio.tiempo }}</td>
+          <td>{{ servicio.operario }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button type="button" class="w-100 btn btn-lg btn-outline-secondary" (click)="crearServicio()">Crear Orden</button>
+
+</div>

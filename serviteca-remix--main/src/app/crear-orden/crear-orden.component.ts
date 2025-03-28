@@ -10,6 +10,12 @@ import { OrdenService } from '../service/orden.servicio';
   styleUrls: ['./crear-orden.component.css']
 })
 export class CrearOrdenComponent implements OnInit{
+    someMethod() {
+        throw new Error('Method not implemented.');
+    }
+    someVariable(someVariable: any) {
+        throw new Error('Method not implemented.');
+    }
 
   servicios: any;
   vehiculos: Vehiculo[] = [];

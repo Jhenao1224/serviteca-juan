@@ -1,0 +1,6 @@
+projectKey=Serviteca-rm-jd
+serverUrl=http://localhost:9000
+serverVersion=25.3.0.104237
+dashboardUrl=http://localhost:9000/dashboard?id=Serviteca-rm-jd
+ceTaskId=c63f2314-2e57-4a92-ae14-0c90a2083cdc
+ceTaskUrl=http://localhost:9000/api/ce/task?id=c63f2314-2e57-4a92-ae14-0c90a2083cdc

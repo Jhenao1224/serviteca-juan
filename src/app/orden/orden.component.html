@@ -1,0 +1,50 @@
+<div>
+  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="orden" (change)="listarServicios()">
+    <option>Seccione una orden</option>
+    <option value="{{ item }}" *ngFor="let item of lista; let indice = index">{{ item }} </option>
+  </select>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center" *ngIf="mostrar">
+  <div class="col" *ngFor="let servicioItem of servicios; let indice = index">
+    <div class="card mb-4 rounded-3 shadow-sm">
+      <div class="card-header py-3">
+        <h4 class="my-0 fw-normal">{{ servicioItem.nombre }}</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title"><small class="text-body-secondary fw-light">$ </small>{{ servicioItem.precio }}</h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Tarda {{ servicioItem.tiempo }} horas</li>
+          <li>Realizado por: {{ servicioItem.operario }}</li>
+        </ul>
+        <button type="button" class="w-100 btn btn-lg btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          FInalizar servicio
+        </button>
+        <!--button type="button" class="w-100 btn btn-lg btn-outline-secondary" (click)="agregarServicio(servicioItem)">Agregar</button-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ingrese los imprevistos encontrados</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <!--div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div-->
+    </div>
+  </div>
+</div>
+

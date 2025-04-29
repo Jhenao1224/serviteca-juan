@@ -8,7 +8,7 @@ export class ClientesService {
     constructor(private dataService: DataService){}
 
     obtenerClientes(){
-        this.dataService.obtenerClientes()  
+        this.dataService.obtenerClientes()
     }
 
     guardarclientes(cliente: Cliente){

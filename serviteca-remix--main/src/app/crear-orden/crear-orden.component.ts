@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
 import { Cliente } from '../modelo/cliente.model';
 import { Vehiculo } from '../modelo/vehiculo.model';
-import { OrdenService } from '../service/orden.servicio';
+import { OrdenService } from '../service/orden.service';
 
 @Component({
   selector: 'app-crear-orden',
@@ -23,7 +23,7 @@ export class CrearOrdenComponent implements OnInit{
   orden: any[] = []
   ordenTemporal:any[] = []
 
-  constructor(private dataService: DataService, 
+  constructor(private dataService: DataService,
     private ordenServicio: OrdenService){}
 
    ngOnInit(): void {

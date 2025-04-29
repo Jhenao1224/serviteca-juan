@@ -1,7 +1,7 @@
 frameworks: ['jasmine', 'karma-typescript'],
 files: [
     { pattern: 'src/**/*.ts' },
-    { pattern: 'src/**/*.spec.ts' }
+    { pattern: 'src/**/*.spec.ts', watched: true}
 ],
 preprocessors: {
     '**/*.ts': ['karma-typescript']

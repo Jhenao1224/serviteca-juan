@@ -1,0 +1,333 @@
+[1mdiff --git a/serviteca-remix--main/package-lock.json b/serviteca-remix--main/package-lock.json[m
+[1mindex 5a73c6a..2c228e9 100644[m
+[1m--- a/serviteca-remix--main/package-lock.json[m
+[1m+++ b/serviteca-remix--main/package-lock.json[m
+[36m@@ -8,15 +8,15 @@[m
+       "name": "serviteca",[m
+       "version": "0.0.0",[m
+       "dependencies": {[m
+[31m-        "@angular/animations": "^15.2.0",[m
+[31m-        "@angular/common": "^15.2.0",[m
+[31m-        "@angular/compiler": "^15.2.0",[m
+[31m-        "@angular/core": "^15.2.0",[m
+[32m+[m[32m        "@angular/animations": "^15.2.10",[m
+[32m+[m[32m        "@angular/common": "^15.2.10",[m
+[32m+[m[32m        "@angular/compiler": "^15.2.10",[m
+[32m+[m[32m        "@angular/core": "^15.2.10",[m
+         "@angular/fire": "^7.6.1",[m
+         "@angular/forms": "^15.2.10",[m
+[31m-        "@angular/platform-browser": "^15.2.0",[m
+[31m-        "@angular/platform-browser-dynamic": "^15.2.0",[m
+[31m-        "@angular/router": "^15.2.0",[m
+[32m+[m[32m        "@angular/platform-browser": "^15.2.10",[m
+[32m+[m[32m        "@angular/platform-browser-dynamic": "^15.2.10",[m
+[32m+[m[32m        "@angular/router": "^15.2.10",[m
+         "@popperjs/core": "^2.11.8",[m
+         "bootstrap": "^5.2.3",[m
+         "firebase": "^11.4.0",[m
+[36m@@ -25,9 +25,9 @@[m
+         "zone.js": "~0.12.0"[m
+       },[m
+       "devDependencies": {[m
+[31m-        "@angular-devkit/build-angular": "^15.2.2",[m
+[31m-        "@angular/cli": "~15.2.2",[m
+[31m-        "@angular/compiler-cli": "^15.2.0",[m
+[32m+[m[32m        "@angular-devkit/build-angular": "^15.2.10",[m
+[32m+[m[32m        "@angular/cli": "~15.2.10",[m
+[32m+[m[32m        "@angular/compiler-cli": "^15.2.10",[m
+         "@types/jasmine": "~4.3.0",[m
+         "jasmine-core": "~4.5.0",[m
+         "karma": "~6.4.0",[m
+[36m@@ -52,12 +52,13 @@[m
+       }[m
+     },[m
+     "node_modules/@angular-devkit/architect": {[m
+[31m-      "version": "0.1502.8",[m
+[31m-      "resolved": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.1502.8.tgz",[m
+[31m-      "integrity": "sha512-rTltw2ABHrcKc8EGimALvXmrDTP5hlNbEy6nYolJoXEI9EwHgriWrVLVPs3OEF+/ed47dbJi9EGOXUOgzgpB5A==",[m
+[32m+[m[32m      "version": "0.1502.11",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.1502.11.tgz",[m
+[32m+[m[32m      "integrity": "sha512-+hkG5UjIaKMRdo6SFLNQs+Cv7yAVeN8ijfDwI2z/mp7/otowuSEy+H3Tii195jfJ8TQ+y1B7svnx2D6O7oOYbQ==",[m
+       "dev": true,[m
+[32m+[m[32m      "license": "MIT",[m
+       "dependencies": {[m
+[31m-        "@angular-devkit/core": "15.2.8",[m
+[32m+[m[32m        "@angular-devkit/core": "15.2.11",[m
+         "rxjs": "6.6.7"[m
+       },[m
+       "engines": {[m
+[36m@@ -67,15 +68,16 @@[m
+       }[m
+     },[m
+     "node_modules/@angular-devkit/build-angular": {[m
+[31m-      "version": "15.2.8",[m
+[31m-      "resolved": "https://registry.npmjs.org/@angular-devkit/build-angular/-/build-angular-15.2.8.tgz",[m
+[31m-      "integrity": "sha512-TGDnXhhOG6h6TOrWWzfnkha7wYBOXi7iJc1o1w1VKCayE3T6TZZdF847aK66vL9KG7AKYVdGhWEGw2WBHUBUpg==",[m
+[32m+[m[32m      "version": "15.2.11",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@angular-devkit/build-angular/-/build-angular-15.2.11.tgz",[m
+[32m+[m[32m      "integrity": "sha512-MnpVCJdk5jHuK7CH/cTcRT0JQkkKkRTEV3WTyOUhTm0O3PlKwvTM6/Sner+zyuhKyw5VFBBMypHh59aTUDEZ1A==",[m
+       "dev": true,[m
+[32m+[m[32m      "license": "MIT",[m
+       "dependencies": {[m
+         "@ampproject/remapping": "2.2.0",[m
+[31m-        "@angular-devkit/architect": "0.1502.8",[m
+[31m-        "@angular-devkit/build-webpack": "0.1502.8",[m
+[31m-        "@angular-devkit/core": "15.2.8",[m
+[32m+[m[32m        "@angular-devkit/architect": "0.1502.11",[m
+[32m+[m[32m        "@angular-devkit/build-webpack": "0.1502.11",[m
+[32m+[m[32m        "@angular-devkit/core": "15.2.11",[m
+         "@babel/core": "7.20.12",[m
+         "@babel/generator": "7.20.14",[m
+         "@babel/helper-annotate-as-pure": "7.18.6",[m
+[36m@@ -87,7 +89,7 @@[m
+         "@babel/runtime": "7.20.13",[m
+         "@babel/template": "7.20.7",[m
+         "@discoveryjs/json-ext": "0.5.7",[m
+[31m-        "@ngtools/webpack": "15.2.8",[m
+[32m+[m[32m        "@ngtools/webpack": "15.2.11",[m
+         "ansi-colors": "4.1.3",[m
+         "autoprefixer": "10.4.13",[m
+         "babel-loader": "9.1.2",[m
+[36m@@ -114,13 +116,13 @@[m
+         "ora": "5.4.1",[m
+         "parse5-html-rewriting-stream": "7.0.0",[m
+         "piscina": "3.2.0",[m
+[31m-        "postcss": "8.4.21",[m
+[32m+[m[32m        "postcss": "8.4.31",[m
+         "postcss-loader": "7.0.2",[m
+         "resolve-url-loader": "5.0.0",[m
+         "rxjs": "6.6.7",[m
+         "sass": "1.58.1",[m
+         "sass-loader": "13.2.0",[m
+[31m-        "semver": "7.3.8",[m
+[32m+[m[32m        "semver": "7.5.3",[m
+         "source-map-loader": "4.0.1",[m
+         "source-map-support": "0.5.21",[m
+         "terser": "5.16.3",[m
+[36m@@ -128,7 +130,7 @@[m
+         "tree-kill": "1.2.2",[m
+         "tslib": "2.5.0",[m
+         "webpack": "5.76.1",[m
+[31m-        "webpack-dev-middleware": "6.0.1",[m
+[32m+[m[32m        "webpack-dev-middleware": "6.1.2",[m
+         "webpack-dev-server": "4.11.1",[m
+         "webpack-merge": "5.8.0",[m
+         "webpack-subresource-integrity": "5.1.0"[m
+[36m@@ -177,12 +179,13 @@[m
+       }[m
+     },[m
+     "node_modules/@angular-devkit/build-webpack": {[m
+[31m-      "version": "0.1502.8",[m
+[31m-      "resolved": "https://registry.npmjs.org/@angular-devkit/build-webpack/-/build-webpack-0.1502.8.tgz",[m
+[31m-      "integrity": "sha512-jWtNv+S03FFLDe/C8SPCcRvkz3bSb2R+919IT086Q9axIPQ1VowOEwzt2k3qXPSSrC7GSYuASM+X92dB47NTQQ==",[m
+[32m+[m[32m      "version": "0.1502.11",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@angular-devkit/build-webpack/-/build-webpack-0.1502.11.tgz",[m
+[32m+[m[32m      "integrity": "sha512-OTONIRp770Jfems4+cULmtoeSzjnpx5UjV2EazojnhRXXBSJMWRMPvwD2QvQl9UO/6eOV3d2mgmP2xOZgc/D6w==",[m
+       "dev": true,[m
+[32m+[m[32m      "license": "MIT",[m
+       "dependencies": {[m
+[31m-        "@angular-devkit/architect": "0.1502.8",[m
+[32m+[m[32m        "@angular-devkit/architect": "0.1502.11",[m
+         "rxjs": "6.6.7"[m
+       },[m
+       "engines": {[m
+[36m@@ -196,9 +199,10 @@[m
+       }[m
+     },[m
+     "node_modules/@angular-devkit/core": {[m
+[31m-      "version": "15.2.8",[m
+[31m-      "resolved": "https://registry.npmjs.org/@angular-devkit/core/-/core-15.2.8.tgz",[m
+[31m-      "integrity": "sha512-Lo4XrbDMtXarKnMrFgWLmQdSX+3QPNAg4otG8cmp/U4jJyjV4dAYKEAsb1sCNGUSM4h4v09EQU/5ugVjDU29lQ==",[m
+[32m+[m[32m      "version": "15.2.11",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@angular-devkit/core/-/core-15.2.11.tgz",[m
+[32m+[m[32m      "integrity": "sha512-zd6QelJ8pOPvz6TsehR0JqixjDjzgEOkKywBJBuwNXY+Nw3MJGayJeWS0UgC+Gk+LoTkpI21RoyaYELkAmD/tw==",[m
+[32m+[m[32m      "license": "MIT",[m
+       "dependencies": {[m
+         "ajv": "8.12.0",[m
+         "ajv-formats": "2.1.1",[m
+[36m@@ -221,11 +225,12 @@[m
+       }[m
+     },[m
+     "node_modules/@angular-devkit/schematics": {[m
+[31m-      "version": "15.2.8",[m
+[31m-      "resolved": "https://registry.npmjs.org/@angular-devkit/schematics/-/schematics-15.2.8.tgz",[m
+[31m-      "integrity": "sha512-w6EUGC96kVsH9f8sEzajzbONMawezyVBiSo+JYp5r25rQArAz/a+KZntbuETWHQ0rQOEsKmUNKxwmr11BaptSQ==",[m
+[32m+[m[32m      "version": "15.2.11",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@angular-devkit/schematics/-/schematics-15.2.11.tgz",[m
+[32m+[m[32m      "integrity": "sha512-Wfj0FO8lcGqOkg7GTYOGUsAHqTS9GMfGXTAGsM/8g0SZI4kaPy/luZSPFtevpFE5PSR6dyWSIC0GgzfavjhJMg==",[m
+[32m+[m[32m      "license": "MIT",[m
+       "dependencies": {[m
+[31m-        "@angular-devkit/core": "15.2.8",[m
+[32m+[m[32m        "@angular-devkit/core": "15.2.11",[m
+         "jsonc-parser": "3.2.0",[m
+         "magic-string": "0.29.0",[m
+         "ora": "5.4.1",[m
+[36m@@ -238,9 +243,10 @@[m
+       }[m
+     },[m
+     "node_modules/@angular/animations": {[m
+[31m-      "version": "15.2.9",[m
+[31m-      "resolved": "https://registry.npmjs.org/@angular/animations/-/animations-15.2.9.tgz",[m
+[31m-      "integrity": "sha512-GQujLhI0cQFcl4Q8y0oSYKSRnW23GIeSL+Arl4eFufziJ9hGAAQNuesaNs/7i+9UlTHDMkPH3kd5ScXuYYz6wg==",[m
+[32m+[m[32m      "version": "15.2.10",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@angular/animations/-/animations-15.2.10.tgz",[m
+[32m+[m[32m      "integrity": "sha512-yxfN8qQpMaukRU5LjFkJBmy85rqrOp86tYVCsf+hmPEFRiXBMUj6xYLeCMcpk3Mt1JtnWGBR34ivGx+7bNeAow==",[m
+[32m+[m[32m      "license": "MIT",[m
+       "dependencies": {[m
+         "tslib": "^2.3.0"[m
+       },[m
+[36m@@ -248,19 +254,20 @@[m
+         "node": "^14.20.0 || ^16.13.0 || >=18.10.0"[m
+       },[m
+       "peerDependencies": {[m
+[31m-        "@angular/core": "15.2.9"[m
+[32m+[m[32m        "@angular/core": "15.2.10"[m
+       }[m
+     },[m
+     "node_modules/@angular/cli": {[m
+[31m-      "version": "15.2.8",[m
+[31m-      "resolved": "https://registry.npmjs.org/@angular/cli/-/cli-15.2.8.tgz",[m
+[31m-      "integrity": "sha512-3VlTfm6DUZfFHBY43vQSAaqmFTxy3VtRd/iDBCHcEPhHwYLWBvNwReJuJfNja8O105QQ6DBiYVBExEBtPmjQ4w==",[m
+[32m+[m[32m      "version": "15.2.11",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@angular/cli/-/cli-15.2.11.tgz",[m
+[32m+[m[32m      "integrity": "sha512-fsIMvUWVCZM3qQSKZXR0yHTXxvoNrbs/PDUsGhRjWZrfUDHBCzMmKral5x8onMA/KPU9O3JiolKjiKVwzkudJA==",[m
+       "dev": true,[m
+[32m+[m[32m      "license": "MIT",[m
+       "dependencies": {[m
+[31m-        "@angular-devkit/architect": "0.1502.8",[m
+[31m-        "@angular-devkit/core": "15.2.8",[m
+[31m-        "@angular-devkit/schematics": "15.2.8",[m
+[31m-        "@schematics/angular": "15.2.8",[m
+[32m+[m[32m        "@angular-devkit/architect": "0.1502.11",[m
+[32m+[m[32m        "@angular-devkit/core": "15.2.11",[m
+[32m+[m[32m        "@angular-devkit/schematics": "15.2.11",[m
+[32m+[m[32m        "@schematics/angular": "15.2.11",[m
+         "@yarnpkg/lockfile": "1.1.0",[m
+         "ansi-colors": "4.1.3",[m
+         "ini": "3.0.1",[m
+[36m@@ -272,7 +279,7 @@[m
+         "ora": "5.4.1",[m
+         "pacote": "15.1.0",[m
+         "resolve": "1.22.1",[m
+[31m-        "semver": "7.3.8",[m
+[32m+[m[32m        "semver": "7.5.3",[m
+         "symbol-observable": "4.0.0",[m
+         "yargs": "17.6.2"[m
+       },[m
+[36m@@ -286,9 +293,10 @@[m
+       }[m
+     },[m
+     "node_modules/@angular/common": {[m
+[31m-      "version": "15.2.9",[m
+[31m-      "resolved": "https://registry.npmjs.org/@angular/common/-/common-15.2.9.tgz",[m
+[31m-      "integrity": "sha512-LM9/UHG2dRrOzlu2KovrFwWIziFMjRxHzSP3Igw6Symw/wIl0kXGq8Fn6RpFP78zmLqnv+IQOoRiby9MCXsI4g==",[m
+[32m+[m[32m      "version": "15.2.10",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@angular/common/-/common-15.2.10.tgz",[m
+[32m+[m[32m      "integrity": "sha512-jdBn3fctkqoNrJn9VLsUHpcCEhCxWSczdsR+BBbD6T0oLl6vMrAVNjPwfBejnlgfWN1KoRU9kgOYsMxa5apIWQ==",[m
+[32m+[m[32m      "license": "MIT",[m
+       "dependencies": {[m
+         "tslib": "^2.3.0"[m
+       },[m
+[36m@@ -296,14 +304,15 @@[m
+         "node": "^14.20.0 || ^16.13.0 || >=18.10.0"[m
+       },[m
+       "peerDependencies": {[m
+[31m-        "@angular/core": "15.2.9",[m
+[32m+[m[32m        "@angular/core": "15.2.10",[m
+         "rxjs": "^6.5.3 || ^7.4.0"[m
+       }[m
+     },[m
+     "node_modules/@angular/compiler": {[m
+[31m-      "version": "15.2.9",[m
+[31m-      "resolved": "https://registry.npmjs.org/@angular/compiler/-/compiler-15.2.9.tgz",[m
+[31m-      "integrity": "sha512-MoKugbjk+E0wRBj12uvIyDLELlVLonnqjA2+XiF+7FxALIeyds3/qQeEoMmYIqAbN3NnTT5pV92RxWwG4tHFwA==",[m
+[32m+[m[32m      "version": "15.2.10",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@angular/compiler/-/compiler-15.2.10.tgz",[m
+[32m+[m[32m      "integrity": "sha512-M0XkeU0O73UlJZwDvOyp8/apetz9UKj78eTFDseMYJDLcxe6MpkbkxqpsGZnKYDj7LIep8PmCAKEkhtenE82zw==",[m
+[32m+[m[32m      "license": "MIT",[m
+       "dependencies": {[m
+         "tslib": "^2.3.0"[m
+       },[m
+[36m@@ -311,7 +320,7 @@[m
+         "node": "^14.20.0 || ^16.13.0 || >=18.10.0"[m
+       },[m
+       "peerDependencies": {[m
+[31m-        "@angular/core": "15.2.9"[m
+[32m+[m[32m        "@angular/core": "15.2.10"[m
+       },[m
+       "peerDependenciesMeta": {[m
+         "@angular/core": {[m
+[36m@@ -320,10 +329,11 @@[m
+       }[m
+     },[m
+     "node_modules/@angular/compiler-cli": {[m
+[31m-      "version": "15.2.9",[m
+[31m-      "resolved": "https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-15.2.9.tgz",[m
+[31m-      "integrity": "sha512-zsbI8G2xHOeYWI0hjFzrI//ZhZV9il/uQW5dAimfwJp06KZDeXZ3PdwY9JQslf6F+saLwOObxy6QMrIVvfjy9w==",[m
+[32m+[m[32m      "version": "15.2.10",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-15.2.10.tgz",[m
+[32m+[m[32m      "integrity": "sha512-mCFIxrs60XicKfA2o42hA7LrQvhybi9BQveWuZn/2iIEOXx7R62Iemz8E21pLWftAZHGxEW3NECfBrY1d3gVmA==",[m
+       "dev": true,[m
+[32m+[m[32m      "license": "MIT",[m
+       "dependencies": {[m
+         "@babel/core": "7.19.3",[m
+         "@jridgewell/sourcemap-codec": "^1.4.14",[m
+[36m@@ -345,7 +355,7 @@[m
+         "node": "^14.20.0 || ^16.13.0 || >=18.10.0"[m
+       },[m
+       "peerDependencies": {[m
+[31m-        "@angular/compiler": "15.2.9",[m
+[32m+[m[32m        "@angular/compiler": "15.2.10",[m
+         "typescript": ">=4.8.2 <5.0"[m
+       }[m
+     },[m
+[36m@@ -354,6 +364,7 @@[m
+       "resolved": "https://registry.npmjs.org/@babel/core/-/core-7.19.3.tgz",[m
+       "integrity": "sha512-WneDJxdsjEvyKtXKsaBGbDeiyOjR5vYq4HcShxnIbG0qixpoHjI3MqeZM9NDvsojNCEBItQE4juOo/bU6e72gQ==",[m
+       "dev": true,[m
+[32m+[m[32m      "license": "MIT",[m
+       "dependencies": {[m
+         "@ampproject/remapping": "^2.1.0",[m
+         "@babel/code-frame": "^7.18.6",[m
+[36m@@ -380,10 +391,11 @@[m
+       }[m
+     },[m
+     "node_modules/@angular/compiler-cli/node_modules/@babel/core/node_modules/semver": {[m
+[31m-      "version": "6.3.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/semver/-/semver-6.3.0.tgz",[m
+[31m-      "integrity": "sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==",[m
+[32m+[m[32m      "version": "6.3.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/semver/-/semver-6.3.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==",[m
+       "dev": true,[m
+[32m+[m[32m      "license": "ISC",[m
+       "bin": {[m
+         "semver": "bin/semver.js"[m
+       }[m
+[36m@@ -393,6 +405,7 @@[m
+       "resolved": "https://registry.npmjs.org/magic-string/-/magic-string-0.27.0.tgz",[m
+       "integrity": "sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==",[m
+       "dev": true,[m
+[32m+[m[32m      "license": "MIT",[m
+       "dependencies": {[m
+         "@jridgewell/sourcemap-codec": "^1.4.13"[m
+       },[m
+[36m@@ -401,9 +414,10 @@[m
+       }[m
+     },[m
+     "node_modules/@angular/core": {[m
+[31m-      "version": "15.2.9",[m
+[31m-      "resolved": "https://registry.npmjs.org/@angular/core/-/core-15.2.9.tgz",[m
+[31m-      "integrity": "sha512-w46Z1yUXCQfKV7XfnamOoLA2VD0MVUUYVrUjO73mHSskDXSXxfZAEHO9kfUS71Cj35PvhP3mbkqWscpea2WeYg==",[m
+[32m+[m[32m      "version": "15.2.10",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@angular/core/-/core-15.2.10.tgz",[m
+[32m+[m[32m      "integrity": "sha512-meGGidnitQJGDxYd9/LrqYiVlId+vGaLoiLgJdKBz+o2ZO6OmXQGuNw2VBqf17/Cc0/UjzrOY7+kILNFKkk/WQ==",[m
+[32m+[m[32m      "license": "MIT",[m
+       "dependencies": {[m
+         "tslib": "^2.3.0"[m
+       },[m
+[36m@@ -1159,9 +1173,10 @@[m
+       }[m
+     },[m
+     "node_modules/@angular/platform-browser": {[m
+[

@@ -2,6 +2,8 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Vehiculo } from "../modelo/vehiculo.model";
 import { Cliente } from "../modelo/cliente.model";
+import { map, switchMap } from 'rxjs/operators';
+
 
 
 @Injectable()
@@ -27,34 +29,30 @@ export class DataService {
     }
 
     guardarClientes(clientes: Cliente[]) {
-        this.httpClient.put('https://serviteca-9b8b4-default-rtdb.firebaseio.com/.json', this.clientes)
-            .subscribe(
-                response => console.log("resultado de guardar personas: " + response),
-                error => console.error("error guardar personas: " + error)
-            );
-    }
+  return this.httpClient.put('https://serviteca-9b8b4-default-rtdb.firebaseio.com/clientes.json', clientes);
+}
+
 
     obtenerVehiculos(){
         return this.httpClient.get<Vehiculo[]>('https://serviteca-9b8b4-default-rtdb.firebaseio.com/vehiculos.json');
     }
 
-    setearDatosVehiculo(vehiculos: Vehiculo){
-        this.obtenerVehiculos()
-            .subscribe(
-                (vehiculosGet: Vehiculo[]=[]) => { this.vehiculos = vehiculosGet;
-                    this.vehiculos.push(vehiculos)
-                    this.guardarVehiculos(vehiculosGet)
-                }
-            );
-    }
+    setearDatosVehiculo(vehiculo: Vehiculo) {
+    return this.obtenerVehiculos().pipe(
+        map((vehiculosGet: Vehiculo[] = []) => {
+            vehiculosGet.push(vehiculo);
+            return vehiculosGet;
+        }),
+        switchMap((vehiculosActualizados: Vehiculo[]) => {
+            return this.guardarVehiculos(vehiculosActualizados);
+        })
+    );
+}
 
     guardarVehiculos(vehiculos: Vehiculo[]) {
-        this.httpClient.put('https://serviteca-9b8b4-default-rtdb.firebaseio.com/vehiculos.json', vehiculos)
-            .subscribe(
-                response => console.log("resultado de guardar personas: " + response),
-                error => console.error("error guardar personas: " + error)
-            );
-    }
+    return this.httpClient.put('https://serviteca-9b8b4-default-rtdb.firebaseio.com/vehiculos.json', vehiculos);
+}
+
 
     obtenerServicios(){
         return this.httpClient.get<any>('https://serviteca-9b8b4-default-rtdb.firebaseio.com/servicios.json');

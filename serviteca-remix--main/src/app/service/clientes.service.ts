@@ -1,18 +1,17 @@
-import { Injectable, OnInit } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { DataService } from "./data.service";
 import { Cliente } from "../modelo/cliente.model";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class ClientesService {
+  constructor(private dataService: DataService) {}
 
-    constructor(private dataService: DataService){}
+  obtenerClientes(): Observable<Cliente[]> {
+    return this.dataService.obtenerClientes();
+  }
 
-    obtenerClientes(){
-        this.dataService.obtenerClientes()
-    }
-
-    guardarclientes(cliente: Cliente){
-        this.dataService.setearDatosCliente(cliente)
-    }
-
+  guardarClientes(clientes: Cliente[]): Observable<any> {
+    return this.dataService.guardarClientes(clientes);
+  }
 }

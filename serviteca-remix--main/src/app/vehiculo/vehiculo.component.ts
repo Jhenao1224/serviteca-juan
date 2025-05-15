@@ -25,12 +25,56 @@ export class VehiculoComponent implements OnInit{
     );
   }
 
-  guardarVehiculos(){
-    let tipo = (<HTMLInputElement>document.getElementById("tipo")).value;
-    let cliente = Number((<HTMLInputElement>document.getElementById("cliente")).value);
-    let vehiculo = new Vehiculo(this.placa, this.modelo, tipo, cliente)
-    this.vehiculoService.guardarVehiculos(vehiculo);
+  guardarVehiculos() {
+  let tipo = (<HTMLInputElement>document.getElementById("tipo")).value;
+  let cliente = Number((<HTMLInputElement>document.getElementById("cliente")).value);
+
+  // Validaciones
+  if (this.placa.trim() === '') {
+    alert("⚠️ La placa es obligatoria.");
+    return;
   }
-  
+
+   if (this.modelo === null || this.modelo === undefined || isNaN(this.modelo)) {
+    alert("⚠️ El modelo es obligatorio.");
+    return;
+  }
+
+  if (this.modelo <= 1950) {
+    alert("⚠️ El modelo invalido.");
+    return;
+  }
+
+  if (tipo.trim() === '') {
+    alert("⚠️ Debes seleccionar un tipo de vehículo.");
+    return;
+  }
+
+  if (isNaN(cliente) || cliente <= 0) {
+    alert("⚠️ Debes seleccionar un cliente válido.");
+    return;
+  }
+
+  // Si pasa validación, continuar
+  let vehiculo = new Vehiculo(this.placa, this.modelo, tipo, cliente);
+
+  this.dataService.obtenerVehiculos().subscribe((vehiculosGet: Vehiculo[] = []) => {
+    vehiculosGet.push(vehiculo);
+
+    this.dataService.guardarVehiculos(vehiculosGet).subscribe({
+      next: () => {
+        alert("✅ Vehículo registrado correctamente.");
+        this.placa = '';
+        this.modelo = 0;
+      },
+      error: () => {
+        alert("❌ Error al registrar el vehículo.");
+      }
+    });
+  });
+}
+
+
+
 
 }

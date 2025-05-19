@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
-import { Cliente } from '../modelo/cliente.model';
 import { Vehiculo } from '../modelo/vehiculo.model';
 import { OrdenService } from '../service/orden.service';
 
@@ -49,3 +48,5 @@ export class CrearOrdenComponent implements OnInit{
   }
 
 }
+
+

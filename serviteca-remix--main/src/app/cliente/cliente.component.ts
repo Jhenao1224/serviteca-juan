@@ -22,6 +22,8 @@ export class ClienteComponent implements OnInit {
   ngOnInit(): void {}
 
   guardarCliente() {
+    const soloLetrasRegex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+
     // Validaciones básicas
     if (!this.cedula || isNaN(this.cedula)) {
       this.mensaje = '⚠️ Ingrese una cédula válida.';
@@ -41,7 +43,19 @@ export class ClienteComponent implements OnInit {
       return;
     }
 
-    // Validar fecha de nacimiento: mayor de 18 y menor de 100
+    if (!soloLetrasRegex.test(this.nombres.trim())) {
+      this.mensaje = '⚠️ Los nombres solo deben contener letras.';
+      this.mensajeTipo = 'error';
+      return;
+    }
+
+    if (!soloLetrasRegex.test(this.apellidos.trim())) {
+      this.mensaje = '⚠️ Los apellidos solo deben contener letras.';
+      this.mensajeTipo = 'error';
+      return;
+    }
+
+    // Validar edad entre 18 y 100 años
     const hoy = new Date();
     const nacimiento = new Date(this.fechaNacimiento);
     const edad = hoy.getFullYear() - nacimiento.getFullYear();
@@ -54,7 +68,7 @@ export class ClienteComponent implements OnInit {
     }
 
     if (nacimiento > hoy) {
-      this.mensaje = '⚠️ La fecha de nacimiento invalida.';
+      this.mensaje = '⚠️ La fecha de nacimiento no puede ser futura.';
       this.mensajeTipo = 'error';
       return;
     }
@@ -66,7 +80,7 @@ export class ClienteComponent implements OnInit {
     }
 
     if (edadExacta > 100) {
-      this.mensaje = '⚠️ La fecha de nacimiento invalida.';
+      this.mensaje = '⚠️ La edad no puede superar los 100 años.';
       this.mensajeTipo = 'error';
       return;
     }
@@ -76,7 +90,7 @@ export class ClienteComponent implements OnInit {
       const cedulaExiste = clientesGet.some(c => c.cedula === this.cedula);
 
       if (cedulaExiste) {
-        this.mensaje = '⚠️ Cliente ya registrado, verifique la informacion';
+        this.mensaje = '⚠️ Ya existe un cliente con esa cédula.';
         this.mensajeTipo = 'error';
         return;
       }

@@ -11,5 +11,5 @@ export class OrdenService{
         //this.dataService.guardarOrden(orden)
         this.dataService.setearOrdenes(orden)
     }
-    
+
 }

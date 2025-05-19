@@ -22,7 +22,7 @@ export class ClienteComponent implements OnInit {
   ngOnInit(): void {}
 
   guardarCliente() {
-    // Validaciones
+    // Validaciones básicas
     if (!this.cedula || isNaN(this.cedula)) {
       this.mensaje = '⚠️ Ingrese una cédula válida.';
       this.mensajeTipo = 'error';
@@ -41,17 +41,47 @@ export class ClienteComponent implements OnInit {
       return;
     }
 
+    // Validar fecha de nacimiento: mayor de 18 y menor de 100
+    const hoy = new Date();
+    const nacimiento = new Date(this.fechaNacimiento);
+    const edad = hoy.getFullYear() - nacimiento.getFullYear();
+    const mes = hoy.getMonth() - nacimiento.getMonth();
+    const dia = hoy.getDate() - nacimiento.getDate();
+
+    let edadExacta = edad;
+    if (mes < 0 || (mes === 0 && dia < 0)) {
+      edadExacta--;
+    }
+
+    if (nacimiento > hoy) {
+      this.mensaje = '⚠️ La fecha de nacimiento invalida.';
+      this.mensajeTipo = 'error';
+      return;
+    }
+
+    if (edadExacta < 18) {
+      this.mensaje = '⚠️ El cliente debe tener al menos 18 años.';
+      this.mensajeTipo = 'error';
+      return;
+    }
+
+    if (edadExacta > 100) {
+      this.mensaje = '⚠️ La fecha de nacimiento invalida.';
+      this.mensajeTipo = 'error';
+      return;
+    }
+
     // Verificar si el cliente ya existe
     this.clientesService.obtenerClientes().subscribe((clientesGet: Cliente[] = []) => {
       const cedulaExiste = clientesGet.some(c => c.cedula === this.cedula);
 
       if (cedulaExiste) {
-        this.mensaje = '⚠️ Ya existe un cliente con esa cédula.';
+        this.mensaje = '⚠️ Cliente ya registrado, verifique la informacion';
         this.mensajeTipo = 'error';
         return;
       }
 
-      const cliente = new Cliente(this.cedula, this.nombres.trim(), this.apellidos.trim(), this.fechaNacimiento);
+      const cliente = new Cliente(this.cedula, this.nombres.trim(), this.apellidos.trim(), nacimiento);
       clientesGet.push(cliente);
 
       this.clientesService.guardarClientes(clientesGet).subscribe({

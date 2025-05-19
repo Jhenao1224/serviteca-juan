@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2020",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "types": ["node", "@cucumber/cucumber"]
+  },
+  "include": [
+    "src/Pruebas/Cucumber/Features/Step_definitions/**/*.ts",  // Ruta de los archivos de pasos
+    "src/Pruebas/Cucumber/Features/**/*.feature"      // Ruta de los archivos .feature
+  ]
+}

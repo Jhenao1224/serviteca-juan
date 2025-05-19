@@ -9,72 +9,88 @@ import { DataService } from '../service/data.service';
   templateUrl: './vehiculo.component.html',
   styleUrls: ['./vehiculo.component.css']
 })
-export class VehiculoComponent implements OnInit{
+export class VehiculoComponent implements OnInit {
 
-  placa: string = "";
+  placa: string = '';
   modelo: number = 0;
   clientes: Cliente[] = [];
+  mensaje: string = '';
+  mensajeTipo: 'success' | 'error' = 'success';
 
-  constructor(private vehiculoService: VehiculosService,
-    private dataService: DataService){}
+  constructor(
+    private vehiculoService: VehiculosService,
+    private dataService: DataService
+  ) {}
 
   ngOnInit(): void {
-    this.dataService.obtenerClientes()
-    .subscribe(
-        (clientes: Cliente[]=[]) => { this.clientes = clientes;}
+    this.dataService.obtenerClientes().subscribe(
+      (clientes: Cliente[] = []) => {
+        this.clientes = clientes;
+      }
     );
   }
 
   guardarVehiculos() {
-  let tipo = (<HTMLInputElement>document.getElementById("tipo")).value;
-  let cliente = Number((<HTMLInputElement>document.getElementById("cliente")).value);
+    let tipo = (<HTMLInputElement>document.getElementById("tipo")).value;
+    let cliente = Number((<HTMLInputElement>document.getElementById("cliente")).value);
 
-  // Validaciones
-  if (this.placa.trim() === '') {
-    alert("⚠️ La placa es obligatoria.");
-    return;
-  }
+    this.placa = this.placa.trim().toUpperCase();
 
-   if (this.modelo === null || this.modelo === undefined || isNaN(this.modelo)) {
-    alert("⚠️ El modelo es obligatorio.");
-    return;
-  }
+    // Validaciones
+    if (this.placa === '' || !/^[A-Z]{3}\d{3}$/.test(this.placa)) {
+      this.mensaje = "⚠️ Ingrese una placa correcta";
+      this.mensajeTipo = 'error';
+      return;
+    }
 
-  if (this.modelo <= 1950) {
-    alert("⚠️ El modelo invalido.");
-    return;
-  }
+    if (this.modelo === null || this.modelo === undefined || isNaN(this.modelo)) {
+      this.mensaje = "⚠️ El modelo es obligatorio.";
+      this.mensajeTipo = 'error';
+      return;
+    }
 
-  if (tipo.trim() === '') {
-    alert("⚠️ Debes seleccionar un tipo de vehículo.");
-    return;
-  }
+    if (this.modelo <= 1950) {
+      this.mensaje = "⚠️ El modelo es inválido.";
+      this.mensajeTipo = 'error';
+      return;
+    }
 
-  if (isNaN(cliente) || cliente <= 0) {
-    alert("⚠️ Debes seleccionar un cliente válido.");
-    return;
-  }
+    if (tipo.trim() === '') {
+      this.mensaje = "⚠️ Selecciona un tipo de vehículo.";
+      this.mensajeTipo = 'error';
+      return;
+    }
 
-  // Si pasa validación, continuar
-  let vehiculo = new Vehiculo(this.placa, this.modelo, tipo, cliente);
+    if (isNaN(cliente) || cliente <= 0) {
+      this.mensaje = "⚠️ Selecciona un cliente válido.";
+      this.mensajeTipo = 'error';
+      return;
+    }
 
-  this.dataService.obtenerVehiculos().subscribe((vehiculosGet: Vehiculo[] = []) => {
-    vehiculosGet.push(vehiculo);
+    this.dataService.obtenerVehiculos().subscribe((vehiculosGet: Vehiculo[] = []) => {
+      const placaExiste = vehiculosGet.some(v => v.placa.toUpperCase() === this.placa);
 
-    this.dataService.guardarVehiculos(vehiculosGet).subscribe({
-      next: () => {
-        alert("✅ Vehículo registrado correctamente.");
-        this.placa = '';
-        this.modelo = 0;
-      },
-      error: () => {
-        alert("❌ Error al registrar el vehículo.");
+      if (placaExiste) {
+        this.mensaje = "⚠️ Ya existe un vehículo con esa placa.";
+        this.mensajeTipo = 'error';
+        return;
       }
+
+      let vehiculo = new Vehiculo(this.placa, this.modelo, tipo, cliente);
+      vehiculosGet.push(vehiculo);
+
+      this.dataService.guardarVehiculos(vehiculosGet).subscribe({
+        next: () => {
+          this.mensaje = "✅ Vehículo registrado correctamente.";
+          this.mensajeTipo = 'success';
+          this.placa = '';
+          this.modelo = 0;
+        },
+        error: () => {
+          this.mensaje = "❌ Error al registrar el vehículo.";
+          this.mensajeTipo = 'error';
+        }
+      });
     });
-  });
-}
-
-
-
-
+  }
 }

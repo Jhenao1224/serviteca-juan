@@ -79,4 +79,4 @@ Scenario: Registrar un cliente con una edad menor a 18 años
     When el usuario escribe el apellido "Rios" en el campo "apellidos"
     When el usuario selecciona la fecha de nacimiento "23/02/2023" en el campo "fechaNacimiento"
     And hace clic en el boton "Crear cliente"
-    Then debe ver un mensaje que diga "✅ Cliente creado correctamente."
+    Then debe ver un mensaje que diga "⚠ Verifique su fecha de nacimiento."

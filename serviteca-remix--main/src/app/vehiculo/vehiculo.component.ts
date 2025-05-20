@@ -3,6 +3,7 @@ import { VehiculosService } from '../service/vehiculos.service';
 import { Vehiculo } from '../modelo/vehiculo.model';
 import { Cliente } from '../modelo/cliente.model';
 import { DataService } from '../service/data.service';
+import { Router } from '@angular/router'; // ✅ Importar Router
 
 @Component({
   selector: 'app-vehiculo',
@@ -19,7 +20,8 @@ export class VehiculoComponent implements OnInit {
 
   constructor(
     private vehiculoService: VehiculosService,
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router // ✅ Inyectar Router
   ) {}
 
   ngOnInit(): void {
@@ -85,6 +87,11 @@ export class VehiculoComponent implements OnInit {
           this.mensajeTipo = 'success';
           this.placa = '';
           this.modelo = 0;
+
+          // ✅ Redirigir después de 1.5 segundos
+          setTimeout(() => {
+            this.router.navigate(['/crearorden']);
+          }, 1500);
         },
         error: () => {
           this.mensaje = "❌ Error al registrar el vehículo.";

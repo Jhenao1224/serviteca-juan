@@ -40,16 +40,27 @@ In this project, unit tests cover code using multiple techniques, such as:
 
 serviteca-juan/
 ├── src/
+
 │ ├── app/
+
 │ │ ├── components/
+
 │ │ ├── services/
+
 │ │ ├── models/
+
 │ │ └── utils/
+
 │ └── tests/ # Unit test files
+
 ├── README.md
+
 ├── package.json
+
 ├── tsconfig.json
+
 └── (other config files)
+
 
 yaml
 Copiar código
